@@ -1,7 +1,11 @@
+# pip install flask
+# pip install python-dotenv
+
 from flask import Flask, render_template
+from dotenv import load_dotenv
 # pip install pymongo
 from pymongo import MongoClient
-from dotenv import load_dotenv
+
 load_dotenv()
 
 import os
@@ -34,19 +38,19 @@ mock_data = [{"name": "product 1",
 #products_collection.insert_many(mock_data)
 
 #create app instance
-app = Flask(__name__)
+flask_app = Flask(__name__)
 
 
-@app.route("/")
+@flask_app.route("/")
 def index():
     return render_template("index.html")
 
 
-@app.route("/products")
+@flask_app.route("/products")
 def products():
     product = list(products_collection.find())
     return render_template("products.html", products=product)
 
 
 
-app.run(host="0.0.0.0", port=5000)
+flask_app.run(host="0.0.0.0", port=5000)
