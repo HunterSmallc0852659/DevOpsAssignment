@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 # pip install pymongo
 from pymongo import MongoClient
 
+import os
 load_dotenv()
 
-import os
 MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
 MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
 
